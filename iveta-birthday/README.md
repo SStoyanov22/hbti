@@ -1,0 +1,33 @@
+# 🎉 Iveta's 30th Birthday Surprise Website
+
+A fun, exciting, and beautiful 3-page surprise website revealing a trip to the Maldives!
+
+## ✨ What It Does
+
+### Page 1: Puzzle Solved! 🎊
+- Vibrant purple/pink/orange gradient background
+- Congratulates Iveta on solving the puzzle
+- Fun detective theme with sparkles
+- Big button: "Покажи ми наградата!" (Show me the prize!)
+
+### Page 2: Happy 30th Birthday! 🎂
+- Pink/rose/red gradient background
+- Animated birthday icons
+- Personal wishes from Стефан, мама, тати и вуйчо
+- Builds anticipation!
+
+### Page 3: THE BIG REVEAL! 🏝️
+- STUNNING slideshow of 14 resort photos
+- Photos change every 3 seconds
+- Complete trip details
+- Live countdown timer
+- Navigation buttons
+
+## 🚀 Run It
+
+npm start      # Development
+npm run build  # Production
+
+Deploy the build folder to Netlify, Vercel, or any static host!
+
+Built with ❤️ for Iveta!
