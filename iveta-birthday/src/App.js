@@ -5,26 +5,242 @@ import './App.css';
 
 const MaldivesSurprise = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [showGallery, setShowGallery] = useState(false);
+  const [guessedCorrectly, setGuessedCorrectly] = useState(false);
+  const [userGuess, setUserGuess] = useState('');
+  const [attempts, setAttempts] = useState(0);
+  const [showHint, setShowHint] = useState(false);
 
   // Resort images from pics folder
   const resortImages = [
-    '/pics/364904860.jpg',
-    '/pics/367051522.jpg',
-    '/pics/364904908.jpg',
-    '/pics/327158367.jpg',
-    '/pics/327199365.jpg',
-    '/pics/367051524.jpg',
-    '/pics/364904892.jpg',
-    '/pics/364904914.jpg',
-    '/pics/ocean-202074_1920.jpg',
-    '/pics/fish-2733323_1920.jpg',
-    '/pics/maldives-2299563_1920.jpg',
-    '/pics/the-sea-3198131_1920.jpg',
-    '/pics/maldive-islands-2171627_1920.jpg',
-    '/pics/sea-2379496_1920.jpg'
+    `${process.env.PUBLIC_URL}/pics/364904860.jpg`,
+    `${process.env.PUBLIC_URL}/pics/367051522.jpg`,
+    `${process.env.PUBLIC_URL}/pics/364904908.jpg`,
+    `${process.env.PUBLIC_URL}/pics/327158367.jpg`,
+    `${process.env.PUBLIC_URL}/pics/327199365.jpg`,
+    `${process.env.PUBLIC_URL}/pics/367051524.jpg`,
+    `${process.env.PUBLIC_URL}/pics/364904892.jpg`,
+    `${process.env.PUBLIC_URL}/pics/364904914.jpg`,
+    `${process.env.PUBLIC_URL}/pics/ocean-202074_1920.jpg`,
+    `${process.env.PUBLIC_URL}/pics/fish-2733323_1920.jpg`,
+    `${process.env.PUBLIC_URL}/pics/maldives-2299563_1920.jpg`,
+    `${process.env.PUBLIC_URL}/pics/the-sea-3198131_1920.jpg`,
+    `${process.env.PUBLIC_URL}/pics/maldive-islands-2171627_1920.jpg`,
+    `${process.env.PUBLIC_URL}/pics/sea-2379496_1920.jpg`
   ];
 
+  const handleGuess = () => {
+    const guess = userGuess.toLowerCase().trim();
+    const correctAnswers = ['малдиви', 'малдивите', 'maldives', 'малдивски острови'];
+
+    if (correctAnswers.includes(guess)) {
+      setGuessedCorrectly(true);
+    } else {
+      setAttempts(attempts + 1);
+      setUserGuess('');
+      if (attempts >= 2) {
+        setShowHint(true);
+      }
+    }
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleGuess();
+    }
+  };
+
+  // If not guessed correctly, show the guessing game
+  if (!guessedCorrectly) {
+    return (
+      <div style={{
+        fontFamily: "'Open Sans', sans-serif",
+        lineHeight: 1.6,
+        color: '#333',
+        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        minHeight: '100vh',
+        padding: '20px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}>
+        <div style={{
+          maxWidth: '900px',
+          margin: '0 auto',
+          background: 'white',
+          borderRadius: '20px',
+          boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
+          overflow: 'hidden'
+        }}>
+          {/* Header */}
+          <div style={{
+            background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+            color: 'white',
+            padding: '40px 30px',
+            textAlign: 'center'
+          }}>
+            <h1 style={{
+              fontFamily: "'Playfair Display', serif",
+              fontSize: '2.5em',
+              marginBottom: '10px'
+            }}>
+              🎉 Честит 30-ти Рожден Ден, Ивета! 🎉
+            </h1>
+            <div style={{ fontSize: '1.2em', opacity: 0.9 }}>
+              Готова ли си за твоята награда?
+            </div>
+          </div>
+
+          {/* Content */}
+          <div style={{ padding: '40px 30px' }}>
+            <div style={{
+              textAlign: 'center',
+              marginBottom: '30px'
+            }}>
+              <h2 style={{
+                fontFamily: "'Playfair Display', serif",
+                color: '#2c3e50',
+                fontSize: '1.8em',
+                marginBottom: '20px'
+              }}>
+                🔍 Разгадай дестинацията!
+              </h2>
+              <p style={{ fontSize: '1.1em', color: '#7f8c8d', marginBottom: '30px' }}>
+                Разгледай снимките и познай къде ще отидеш...
+              </p>
+            </div>
+
+            {/* Carousel */}
+            <div style={{ marginBottom: '30px' }}>
+              <Carousel
+                interval={3000}
+                pause="hover"
+                activeIndex={currentImageIndex}
+                onSelect={(selectedIndex) => setCurrentImageIndex(selectedIndex)}
+                style={{ borderRadius: '15px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,0,0,0.2)' }}
+              >
+                {resortImages.map((img, index) => (
+                  <Carousel.Item key={index}>
+                    <div style={{ height: '500px', position: 'relative' }}>
+                      <img
+                        className="d-block w-100 h-100"
+                        src={img}
+                        alt={`Destination hint ${index + 1}`}
+                        style={{ objectFit: 'cover' }}
+                      />
+                    </div>
+                    <Carousel.Caption style={{ background: 'rgba(0,0,0,0.5)', borderRadius: '10px', padding: '10px' }}>
+                      <h5 style={{ color: 'white', fontWeight: 'bold', marginBottom: 0 }}>
+                        Снимка {index + 1} от {resortImages.length}
+                      </h5>
+                    </Carousel.Caption>
+                  </Carousel.Item>
+                ))}
+              </Carousel>
+            </div>
+
+            {/* Guess Input */}
+            <div style={{
+              background: '#f8f9fa',
+              padding: '30px',
+              borderRadius: '15px',
+              textAlign: 'center'
+            }}>
+              <h3 style={{
+                color: '#2c3e50',
+                marginBottom: '20px',
+                fontSize: '1.3em'
+              }}>
+                Къде ще отидеш?
+              </h3>
+
+              {attempts > 0 && attempts < 3 && (
+                <div style={{
+                  background: '#fff3cd',
+                  color: '#856404',
+                  padding: '15px',
+                  borderRadius: '10px',
+                  marginBottom: '20px',
+                  border: '1px solid #ffeaa7'
+                }}>
+                  Опитай отново! {attempts} {attempts === 1 ? 'опит' : 'опита'}
+                </div>
+              )}
+
+              {showHint && (
+                <div style={{
+                  background: '#d1ecf1',
+                  color: '#0c5460',
+                  padding: '15px',
+                  borderRadius: '10px',
+                  marginBottom: '20px',
+                  border: '1px solid #bee5eb'
+                }}>
+                  💡 Подсказка: Тропически острови в Индийския океан, известни с кристално чисти води...
+                </div>
+              )}
+
+              <div style={{
+                display: 'flex',
+                gap: '10px',
+                maxWidth: '500px',
+                margin: '0 auto'
+              }}>
+                <input
+                  type="text"
+                  value={userGuess}
+                  onChange={(e) => setUserGuess(e.target.value)}
+                  onKeyPress={handleKeyPress}
+                  placeholder="Въведи дестинацията..."
+                  style={{
+                    flex: 1,
+                    padding: '15px 20px',
+                    fontSize: '1.1em',
+                    border: '2px solid #4facfe',
+                    borderRadius: '25px',
+                    outline: 'none'
+                  }}
+                />
+                <button
+                  onClick={handleGuess}
+                  style={{
+                    background: '#4facfe',
+                    color: 'white',
+                    border: 'none',
+                    padding: '15px 40px',
+                    borderRadius: '25px',
+                    fontSize: '1.1em',
+                    cursor: 'pointer',
+                    fontWeight: 'bold',
+                    transition: 'all 0.3s ease'
+                  }}
+                  onMouseOver={(e) => {
+                    e.target.style.background = '#00f2fe';
+                    e.target.style.transform = 'translateY(-2px)';
+                  }}
+                  onMouseOut={(e) => {
+                    e.target.style.background = '#4facfe';
+                    e.target.style.transform = 'translateY(0)';
+                  }}
+                >
+                  Проверка
+                </button>
+              </div>
+
+              <p style={{
+                marginTop: '20px',
+                fontSize: '0.9em',
+                color: '#7f8c8d'
+              }}>
+                💡 Можеш да пишеш на български или английски
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Once guessed correctly, show the full reveal
   return (
     <div style={{
       fontFamily: "'Open Sans', sans-serif",
@@ -72,74 +288,27 @@ const MaldivesSurprise = () => {
         {/* Content */}
         <div style={{ padding: '40px 30px' }}>
 
-          {/* Photo Gallery Carousel Section */}
-          <div style={{ marginBottom: '40px' }}>
+          {/* Success Message */}
+          <div style={{
+            background: 'linear-gradient(135deg, #a8e6cf 0%, #7fcdcd 100%)',
+            color: '#2c3e50',
+            padding: '30px',
+            borderRadius: '15px',
+            textAlign: 'center',
+            marginBottom: '40px',
+            border: '3px solid #4facfe'
+          }}>
             <h2 style={{
-              fontFamily: "'Playfair Display', serif",
-              color: '#2c3e50',
-              fontSize: '1.8em',
-              marginBottom: '20px',
-              borderBottom: '3px solid #4facfe',
-              paddingBottom: '10px'
+              fontSize: '2em',
+              marginBottom: '15px',
+              fontFamily: "'Playfair Display', serif"
             }}>
-              📸 Виж къде ще отидеш
+              🎊 БРАВО! Позна правилно! 🎊
             </h2>
-
-            <div style={{ textAlign: 'center', marginBottom: '20px' }}>
-              <button
-                onClick={() => setShowGallery(!showGallery)}
-                style={{
-                  background: '#4facfe',
-                  color: 'white',
-                  border: 'none',
-                  padding: '15px 30px',
-                  borderRadius: '25px',
-                  fontSize: '1.1em',
-                  cursor: 'pointer',
-                  transition: 'all 0.3s ease'
-                }}
-                onMouseOver={(e) => {
-                  e.target.style.background = '#00f2fe';
-                  e.target.style.transform = 'translateY(-2px)';
-                }}
-                onMouseOut={(e) => {
-                  e.target.style.background = '#4facfe';
-                  e.target.style.transform = 'translateY(0)';
-                }}
-              >
-                {showGallery ? '🔼 Скрий снимките' : '🔽 Покажи снимките'}
-              </button>
-            </div>
-
-            {showGallery && (
-              <div style={{ marginBottom: '20px' }}>
-                <Carousel
-                  interval={3000}
-                  pause="hover"
-                  activeIndex={currentImageIndex}
-                  onSelect={(selectedIndex) => setCurrentImageIndex(selectedIndex)}
-                  style={{ borderRadius: '15px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,0,0,0.2)' }}
-                >
-                  {resortImages.map((img, index) => (
-                    <Carousel.Item key={index}>
-                      <div style={{ height: '500px', position: 'relative' }}>
-                        <img
-                          className="d-block w-100 h-100"
-                          src={img}
-                          alt={`Resort view ${index + 1}`}
-                          style={{ objectFit: 'cover' }}
-                        />
-                      </div>
-                      <Carousel.Caption style={{ background: 'rgba(0,0,0,0.5)', borderRadius: '10px', padding: '10px' }}>
-                        <h5 style={{ color: 'white', fontWeight: 'bold', marginBottom: 0 }}>
-                          Снимка {index + 1} от {resortImages.length}
-                        </h5>
-                      </Carousel.Caption>
-                    </Carousel.Item>
-                  ))}
-                </Carousel>
-              </div>
-            )}
+            <p style={{ fontSize: '1.2em', lineHeight: 1.8 }}>
+              Да, отиваш в <strong>МАЛДИВИТЕ</strong>! 🏝️<br/>
+              Разгледай всички детайли за твоето невероятно приключение по-долу...
+            </p>
           </div>
 
           {/* Flight Details */}
@@ -183,41 +352,113 @@ const MaldivesSurprise = () => {
                   </span>
                 </div>
 
+                {/* First Leg: SOF to IST */}
                 <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  margin: '15px 0'
+                  marginBottom: '20px',
+                  padding: '15px',
+                  background: '#f8f9fa',
+                  borderRadius: '10px'
                 }}>
-                  <div style={{ textAlign: 'center', flex: 1 }}>
-                    <div style={{ fontSize: '1.5em', fontWeight: 700, color: '#2c3e50' }}>SOF</div>
-                    <div style={{ fontSize: '0.9em', color: '#7f8c8d' }}>София, България</div>
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '10px',
+                    marginBottom: '10px'
+                  }}>
+                    <span style={{
+                      background: '#C70025',
+                      color: 'white',
+                      padding: '4px 12px',
+                      borderRadius: '12px',
+                      fontSize: '0.85em',
+                      fontWeight: 'bold'
+                    }}>
+                      TK1032
+                    </span>
+                    <span style={{ fontSize: '0.85em', color: '#7f8c8d' }}>Turkish Airlines</span>
+                    <span style={{ fontSize: '0.85em', color: '#7f8c8d' }}>• Economy Class</span>
                   </div>
-                  <div style={{ fontSize: '2em', color: '#4facfe', margin: '0 20px' }}>✈️</div>
-                  <div style={{ textAlign: 'center', flex: 1 }}>
-                    <div style={{ fontSize: '1.5em', fontWeight: 700, color: '#2c3e50' }}>MLE</div>
-                    <div style={{ fontSize: '0.9em', color: '#7f8c8d' }}>Малдиви</div>
+
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    margin: '10px 0'
+                  }}>
+                    <div style={{ flex: 1 }}>
+                      <div style={{ fontSize: '1.3em', fontWeight: 700, color: '#2c3e50' }}>16:00</div>
+                      <div style={{ fontSize: '0.9em', color: '#7f8c8d' }}>София (SOF)</div>
+                    </div>
+                    <div style={{ padding: '0 15px', textAlign: 'center' }}>
+                      <div style={{ fontSize: '0.8em', color: '#7f8c8d' }}>1ч 30м</div>
+                      <div style={{ fontSize: '1.5em', color: '#4facfe' }}>→</div>
+                    </div>
+                    <div style={{ flex: 1, textAlign: 'right' }}>
+                      <div style={{ fontSize: '1.3em', fontWeight: 700, color: '#2c3e50' }}>18:30</div>
+                      <div style={{ fontSize: '0.9em', color: '#7f8c8d' }}>Истанбул (IST)</div>
+                    </div>
                   </div>
                 </div>
 
+                {/* Transfer */}
                 <div style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  marginTop: '15px',
-                  paddingTop: '15px',
-                  borderTop: '1px solid #ecf0f1'
+                  padding: '10px 15px',
+                  background: '#fff3cd',
+                  borderRadius: '8px',
+                  marginBottom: '20px',
+                  textAlign: 'center',
+                  fontSize: '0.9em',
+                  color: '#856404'
                 }}>
-                  <div style={{ textAlign: 'center' }}>
-                    <div style={{ fontSize: '1.2em', fontWeight: 600, color: '#2c3e50' }}>16:00</div>
-                    <div style={{ fontSize: '0.8em', color: '#7f8c8d', textTransform: 'uppercase' }}>Тръгване</div>
+                  ⏱ Трансфер в Истанбул: 8ч 5м
+                </div>
+
+                {/* Second Leg: IST to MLE */}
+                <div style={{
+                  padding: '15px',
+                  background: '#f8f9fa',
+                  borderRadius: '10px'
+                }}>
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '10px',
+                    marginBottom: '10px'
+                  }}>
+                    <span style={{
+                      background: '#C70025',
+                      color: 'white',
+                      padding: '4px 12px',
+                      borderRadius: '12px',
+                      fontSize: '0.85em',
+                      fontWeight: 'bold'
+                    }}>
+                      TK734
+                    </span>
+                    <span style={{ fontSize: '0.85em', color: '#7f8c8d' }}>Turkish Airlines</span>
+                    <span style={{ fontSize: '0.85em', color: '#7f8c8d' }}>• Economy Class</span>
                   </div>
-                  <div style={{ textAlign: 'center' }}>
-                    <div style={{ fontSize: '1.2em', fontWeight: 600, color: '#2c3e50' }}>12:35+1</div>
-                    <div style={{ fontSize: '0.8em', color: '#7f8c8d', textTransform: 'uppercase' }}>Пристигане</div>
-                  </div>
-                  <div style={{ textAlign: 'center' }}>
-                    <div style={{ fontSize: '1.2em', fontWeight: 600, color: '#2c3e50' }}>17ч 35м</div>
-                    <div style={{ fontSize: '0.8em', color: '#7f8c8d', textTransform: 'uppercase' }}>Продължителност</div>
+
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    margin: '10px 0'
+                  }}>
+                    <div style={{ flex: 1 }}>
+                      <div style={{ fontSize: '1.3em', fontWeight: 700, color: '#2c3e50' }}>02:35</div>
+                      <div style={{ fontSize: '0.9em', color: '#7f8c8d' }}>Истанбул (IST)</div>
+                      <div style={{ fontSize: '0.75em', color: '#e74c3c', fontWeight: 600 }}>Четвъртък, 5 март</div>
+                    </div>
+                    <div style={{ padding: '0 15px', textAlign: 'center' }}>
+                      <div style={{ fontSize: '0.8em', color: '#7f8c8d' }}>8ч</div>
+                      <div style={{ fontSize: '1.5em', color: '#4facfe' }}>→</div>
+                    </div>
+                    <div style={{ flex: 1, textAlign: 'right' }}>
+                      <div style={{ fontSize: '1.3em', fontWeight: 700, color: '#2c3e50' }}>12:35</div>
+                      <div style={{ fontSize: '0.9em', color: '#7f8c8d' }}>Малдиви (MLE)</div>
+                      <div style={{ fontSize: '0.75em', color: '#e74c3c', fontWeight: 600 }}>Четвъртък, 5 март</div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -243,41 +484,115 @@ const MaldivesSurprise = () => {
                   </span>
                 </div>
 
+                {/* First Leg: MLE to IST */}
                 <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  margin: '15px 0'
+                  marginBottom: '20px',
+                  padding: '15px',
+                  background: '#f8f9fa',
+                  borderRadius: '10px'
                 }}>
-                  <div style={{ textAlign: 'center', flex: 1 }}>
-                    <div style={{ fontSize: '1.5em', fontWeight: 700, color: '#2c3e50' }}>MLE</div>
-                    <div style={{ fontSize: '0.9em', color: '#7f8c8d' }}>Малдиви</div>
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '10px',
+                    marginBottom: '10px'
+                  }}>
+                    <span style={{
+                      background: '#C70025',
+                      color: 'white',
+                      padding: '4px 12px',
+                      borderRadius: '12px',
+                      fontSize: '0.85em',
+                      fontWeight: 'bold'
+                    }}>
+                      TK735
+                    </span>
+                    <span style={{ fontSize: '0.85em', color: '#7f8c8d' }}>Turkish Airlines</span>
+                    <span style={{ fontSize: '0.85em', color: '#7f8c8d' }}>• Economy Class</span>
                   </div>
-                  <div style={{ fontSize: '2em', color: '#4facfe', margin: '0 20px' }}>✈️</div>
-                  <div style={{ textAlign: 'center', flex: 1 }}>
-                    <div style={{ fontSize: '1.5em', fontWeight: 700, color: '#2c3e50' }}>SOF</div>
-                    <div style={{ fontSize: '0.9em', color: '#7f8c8d' }}>София, България</div>
+
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    margin: '10px 0'
+                  }}>
+                    <div style={{ flex: 1 }}>
+                      <div style={{ fontSize: '1.3em', fontWeight: 700, color: '#2c3e50' }}>21:55</div>
+                      <div style={{ fontSize: '0.9em', color: '#7f8c8d' }}>Малдиви (MLE)</div>
+                      <div style={{ fontSize: '0.75em', color: '#7f8c8d' }}>Четвъртък, 12 март</div>
+                    </div>
+                    <div style={{ padding: '0 15px', textAlign: 'center' }}>
+                      <div style={{ fontSize: '0.8em', color: '#7f8c8d' }}>8ч 45м</div>
+                      <div style={{ fontSize: '1.5em', color: '#4facfe' }}>→</div>
+                    </div>
+                    <div style={{ flex: 1, textAlign: 'right' }}>
+                      <div style={{ fontSize: '1.3em', fontWeight: 700, color: '#2c3e50' }}>04:40</div>
+                      <div style={{ fontSize: '0.9em', color: '#7f8c8d' }}>Истанбул (IST)</div>
+                      <div style={{ fontSize: '0.75em', color: '#e74c3c', fontWeight: 600 }}>Петък, 13 март</div>
+                    </div>
                   </div>
                 </div>
 
+                {/* Transfer */}
                 <div style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  marginTop: '15px',
-                  paddingTop: '15px',
-                  borderTop: '1px solid #ecf0f1'
+                  padding: '10px 15px',
+                  background: '#fff3cd',
+                  borderRadius: '8px',
+                  marginBottom: '20px',
+                  textAlign: 'center',
+                  fontSize: '0.9em',
+                  color: '#856404'
                 }}>
-                  <div style={{ textAlign: 'center' }}>
-                    <div style={{ fontSize: '1.2em', fontWeight: 600, color: '#2c3e50' }}>21:55</div>
-                    <div style={{ fontSize: '0.8em', color: '#7f8c8d', textTransform: 'uppercase' }}>Тръгване</div>
+                  ⏱ Трансфер в Истанбул: 3ч 50м
+                </div>
+
+                {/* Second Leg: IST to SOF */}
+                <div style={{
+                  padding: '15px',
+                  background: '#f8f9fa',
+                  borderRadius: '10px'
+                }}>
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '10px',
+                    marginBottom: '10px'
+                  }}>
+                    <span style={{
+                      background: '#C70025',
+                      color: 'white',
+                      padding: '4px 12px',
+                      borderRadius: '12px',
+                      fontSize: '0.85em',
+                      fontWeight: 'bold'
+                    }}>
+                      TK1027
+                    </span>
+                    <span style={{ fontSize: '0.85em', color: '#7f8c8d' }}>Turkish Airlines</span>
+                    <span style={{ fontSize: '0.85em', color: '#7f8c8d' }}>• Economy Class</span>
                   </div>
-                  <div style={{ textAlign: 'center' }}>
-                    <div style={{ fontSize: '1.2em', fontWeight: 600, color: '#2c3e50' }}>09:15+1</div>
-                    <div style={{ fontSize: '0.8em', color: '#7f8c8d', textTransform: 'uppercase' }}>Пристигане</div>
-                  </div>
-                  <div style={{ textAlign: 'center' }}>
-                    <div style={{ fontSize: '1.2em', fontWeight: 600, color: '#2c3e50' }}>14ч 20м</div>
-                    <div style={{ fontSize: '0.8em', color: '#7f8c8d', textTransform: 'uppercase' }}>Продължителност</div>
+
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    margin: '10px 0'
+                  }}>
+                    <div style={{ flex: 1 }}>
+                      <div style={{ fontSize: '1.3em', fontWeight: 700, color: '#2c3e50' }}>08:30</div>
+                      <div style={{ fontSize: '0.9em', color: '#7f8c8d' }}>Истанбул (IST)</div>
+                      <div style={{ fontSize: '0.75em', color: '#e74c3c', fontWeight: 600 }}>Петък, 13 март</div>
+                    </div>
+                    <div style={{ padding: '0 15px', textAlign: 'center' }}>
+                      <div style={{ fontSize: '0.8em', color: '#7f8c8d' }}>1ч 15м</div>
+                      <div style={{ fontSize: '1.5em', color: '#4facfe' }}>→</div>
+                    </div>
+                    <div style={{ flex: 1, textAlign: 'right' }}>
+                      <div style={{ fontSize: '1.3em', fontWeight: 700, color: '#2c3e50' }}>08:45</div>
+                      <div style={{ fontSize: '0.9em', color: '#7f8c8d' }}>София (SOF)</div>
+                      <div style={{ fontSize: '0.75em', color: '#e74c3c', fontWeight: 600 }}>Петък, 13 март</div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -357,6 +672,37 @@ const MaldivesSurprise = () => {
                   </div>
                 ))}
               </div>
+
+              {/* Hotel Website Link */}
+              <div style={{ marginTop: '30px' }}>
+                <a
+                  href="https://www.coloursofoblu.com/oblu-xperience-ailafushi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'inline-block',
+                    background: 'white',
+                    color: '#0984e3',
+                    padding: '15px 35px',
+                    borderRadius: '25px',
+                    fontSize: '1.1em',
+                    fontWeight: 'bold',
+                    textDecoration: 'none',
+                    transition: 'all 0.3s ease',
+                    boxShadow: '0 5px 15px rgba(0,0,0,0.2)'
+                  }}
+                  onMouseOver={(e) => {
+                    e.target.style.transform = 'translateY(-3px)';
+                    e.target.style.boxShadow = '0 8px 20px rgba(0,0,0,0.3)';
+                  }}
+                  onMouseOut={(e) => {
+                    e.target.style.transform = 'translateY(0)';
+                    e.target.style.boxShadow = '0 5px 15px rgba(0,0,0,0.2)';
+                  }}
+                >
+                  🌐 Виж уебсайта на хотела
+                </a>
+              </div>
             </div>
           </div>
 
@@ -382,7 +728,7 @@ const MaldivesSurprise = () => {
               fontSize: '1.1em',
               lineHeight: 1.8
             }}>
-              "Скъпа Ивета,<br/><br/>
+              "Скъпо Ико,<br/><br/>
               Това пътуване до Малдивите е твоя мечта, която ще се сбъдне за твоя 30-и рожден ден!
               Няма по-добър начин да отпразнуваме този важен юбилей от едно невероятно приключение в рая заедно с цялото семейство.<br/><br/>
               Ще вървим по красивите плажове, ще се наслаждаваме на кристално чистите води и ще създаваме
@@ -391,7 +737,7 @@ const MaldivesSurprise = () => {
               Това е твоят ден, твоята мечта, твоето приключение! Нека направим твоя 30-и рожден ден
               най-незабравимия ден в живота ти!<br/><br/>
               С любов,<br/>
-              Стоян, мама, тати и вуйчо 👨‍👩‍👧‍👦🎂"
+              Mама, тати, вуйчо и Стоян👨‍👩‍👧‍👦🎂"
             </div>
           </div>
         </div>
