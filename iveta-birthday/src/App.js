@@ -52,20 +52,21 @@ const MaldivesSurprise = () => {
 
   // Resort images from pics folder
   const resortImages = [
-    `${process.env.PUBLIC_URL}/pics/364904860.jpg`,
-    `${process.env.PUBLIC_URL}/pics/367051522.jpg`,
-    `${process.env.PUBLIC_URL}/pics/364904908.jpg`,
-    `${process.env.PUBLIC_URL}/pics/327158367.jpg`,
-    `${process.env.PUBLIC_URL}/pics/327199365.jpg`,
-    `${process.env.PUBLIC_URL}/pics/367051524.jpg`,
-    `${process.env.PUBLIC_URL}/pics/364904892.jpg`,
-    `${process.env.PUBLIC_URL}/pics/364904914.jpg`,
-    `${process.env.PUBLIC_URL}/pics/ocean-202074_1920.jpg`,
-    `${process.env.PUBLIC_URL}/pics/fish-2733323_1920.jpg`,
-    `${process.env.PUBLIC_URL}/pics/maldives-2299563_1920.jpg`,
-    `${process.env.PUBLIC_URL}/pics/the-sea-3198131_1920.jpg`,
-    `${process.env.PUBLIC_URL}/pics/maldive-islands-2171627_1920.jpg`,
-    `${process.env.PUBLIC_URL}/pics/sea-2379496_1920.jpg`
+    `${process.env.PUBLIC_URL}/pics/1.jpg`,
+    `${process.env.PUBLIC_URL}/pics/2.jpg`,
+    `${process.env.PUBLIC_URL}/pics/3.jpg`,
+    `${process.env.PUBLIC_URL}/pics/4.jpg`,
+    `${process.env.PUBLIC_URL}/pics/5.jpg`,
+    `${process.env.PUBLIC_URL}/pics/6.jpg`,
+    `${process.env.PUBLIC_URL}/pics/7.jpg`,
+    `${process.env.PUBLIC_URL}/pics/8.jpg`,
+    `${process.env.PUBLIC_URL}/pics/9.jpg`,
+    `${process.env.PUBLIC_URL}/pics/10.jpg`,
+    `${process.env.PUBLIC_URL}/pics/11.jpg`,
+    `${process.env.PUBLIC_URL}/pics/12.jpg`,
+    `${process.env.PUBLIC_URL}/pics/13.jpg`,
+    `${process.env.PUBLIC_URL}/pics/14.jpg`,
+    `${process.env.PUBLIC_URL}/pics/15.jpg`
   ];
 
   const handleGuess = () => {
