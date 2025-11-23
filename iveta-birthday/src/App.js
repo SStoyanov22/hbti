@@ -819,7 +819,7 @@ const MaldivesSurprise = () => {
                 marginBottom: '20px',
                 color: '#764ba2'
               }}>
-                Скъпа Ивче,
+                Скъпо Ивче,
               </div>
 
               <div style={{ marginBottom: '18px', textAlign: 'justify' }}>
