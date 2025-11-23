@@ -169,9 +169,16 @@ const MaldivesSurprise = () => {
                         style={{ objectFit: 'cover' }}
                       />
                     </div>
-                    <Carousel.Caption style={{ background: 'rgba(0,0,0,0.5)', borderRadius: '10px', padding: '10px' }}>
-                      
-                    </Carousel.Caption>
+                    {index === 15 && (
+                      <Carousel.Caption style={{ background: 'rgba(0,0,0,0.7)', borderRadius: '10px', padding: '15px' }}>
+                        <div style={{ color: 'white', fontWeight: 'bold', fontSize: '1em', marginBottom: '5px' }}>
+                          📍 Тайното местоположение:
+                        </div>
+                        <div style={{ color: 'white', fontSize: '0.95em', letterSpacing: '0.5px' }}>
+                          4°18'20.6"N 73°30'19.1"E
+                        </div>
+                      </Carousel.Caption>
+                    )}
                   </Carousel.Item>
                 ))}
               </Carousel>
