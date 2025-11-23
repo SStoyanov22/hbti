@@ -297,54 +297,54 @@ const MaldivesSurprise = () => {
         </div>
 
         {/* Content */}
-        <div style={{ padding: '40px 30px' }}>
+        <div style={{ padding: 'clamp(15px, 4vw, 40px) clamp(15px, 3vw, 30px)' }}>
 
           {/* Success Message */}
           <div ref={successMessageRef} style={{
             background: 'linear-gradient(135deg, #a8e6cf 0%, #7fcdcd 100%)',
             color: '#2c3e50',
-            padding: '30px',
+            padding: 'clamp(15px, 4vw, 30px)',
             borderRadius: '15px',
             textAlign: 'center',
-            marginBottom: '40px',
+            marginBottom: 'clamp(20px, 5vw, 40px)',
             border: '3px solid #4facfe'
           }}>
             <h2 style={{
-              fontSize: '2em',
-              marginBottom: '15px',
+              fontSize: 'clamp(1.3em, 5vw, 2em)',
+              marginBottom: '12px',
               fontFamily: "'Playfair Display', serif"
             }}>
               🎊 БРАВО! Позна правилно! 🎊
             </h2>
-            <p style={{ fontSize: '1.2em', lineHeight: 1.8 }}>
+            <p style={{ fontSize: 'clamp(0.95em, 3vw, 1.2em)', lineHeight: 1.8 }}>
               Да, отиваш в <strong>МАЛДИВИТЕ</strong>! 🏝️<br/>
               Разгледай всички детайли за твоето невероятно приключение по-долу...
             </p>
           </div>
 
           {/* Flight Details */}
-          <div style={{ marginBottom: '40px' }}>
+          <div style={{ marginBottom: '30px' }}>
             <h2 style={{
               fontFamily: "'Playfair Display', serif",
               color: '#2c3e50',
-              fontSize: '1.8em',
-              marginBottom: '20px',
+              fontSize: 'clamp(1.2em, 4vw, 1.8em)',
+              marginBottom: '15px',
               borderBottom: '3px solid #4facfe',
-              paddingBottom: '10px'
+              paddingBottom: '8px'
             }}>
               ✈️ Детайли за полетите
             </h2>
 
             <div style={{
               background: '#f8f9fa',
-              padding: '25px',
+              padding: '15px',
               borderRadius: '15px',
               borderLeft: '5px solid #4facfe'
             }}>
               {/* Outbound Flight */}
               <div style={{
-                marginBottom: '25px',
-                padding: '20px',
+                marginBottom: '20px',
+                padding: '12px',
                 background: 'white',
                 borderRadius: '10px',
                 boxShadow: '0 5px 15px rgba(0,0,0,0.1)'
@@ -353,72 +353,76 @@ const MaldivesSurprise = () => {
                   display: 'flex',
                   justifyContent: 'space-between',
                   alignItems: 'center',
-                  marginBottom: '15px'
+                  marginBottom: '12px',
+                  flexWrap: 'wrap',
+                  gap: '8px'
                 }}>
-                  <span style={{ fontWeight: 600, color: '#2c3e50', fontSize: '1.1em' }}>
+                  <span style={{ fontWeight: 600, color: '#2c3e50', fontSize: 'clamp(0.9em, 2.5vw, 1.1em)' }}>
                     Полет 1 - Отиване
                   </span>
-                  <span style={{ color: '#7f8c8d', fontSize: '0.9em' }}>
+                  <span style={{ color: '#7f8c8d', fontSize: 'clamp(0.75em, 2vw, 0.9em)' }}>
                     Сряда, 4 март 2026
                   </span>
                 </div>
 
                 {/* First Leg: SOF to IST */}
                 <div style={{
-                  marginBottom: '20px',
-                  padding: '15px',
+                  marginBottom: '15px',
+                  padding: '10px',
                   background: '#f8f9fa',
                   borderRadius: '10px'
                 }}>
                   <div style={{
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '10px',
-                    marginBottom: '10px'
+                    gap: '6px',
+                    marginBottom: '10px',
+                    flexWrap: 'wrap'
                   }}>
                     <span style={{
                       background: '#C70025',
                       color: 'white',
-                      padding: '4px 12px',
+                      padding: '4px 10px',
                       borderRadius: '12px',
-                      fontSize: '0.85em',
+                      fontSize: 'clamp(0.7em, 2vw, 0.85em)',
                       fontWeight: 'bold'
                     }}>
                       TK1032
                     </span>
-                    <span style={{ fontSize: '0.85em', color: '#7f8c8d' }}>Turkish Airlines</span>
-                    <span style={{ fontSize: '0.85em', color: '#7f8c8d' }}>• Economy Class</span>
+                    <span style={{ fontSize: 'clamp(0.7em, 2vw, 0.85em)', color: '#7f8c8d' }}>Turkish Airlines</span>
+                    <span style={{ fontSize: 'clamp(0.7em, 2vw, 0.85em)', color: '#7f8c8d' }}>• Economy Class</span>
                   </div>
 
                   <div style={{
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    margin: '10px 0'
+                    margin: '10px 0',
+                    gap: '5px'
                   }}>
-                    <div style={{ flex: 1 }}>
-                      <div style={{ fontSize: '1.3em', fontWeight: 700, color: '#2c3e50' }}>16:00</div>
-                      <div style={{ fontSize: '0.9em', color: '#7f8c8d' }}>София (SOF)</div>
+                    <div style={{ flex: 1, minWidth: '70px' }}>
+                      <div style={{ fontSize: 'clamp(1em, 3vw, 1.3em)', fontWeight: 700, color: '#2c3e50' }}>16:00</div>
+                      <div style={{ fontSize: 'clamp(0.7em, 2vw, 0.9em)', color: '#7f8c8d' }}>София (SOF)</div>
                     </div>
-                    <div style={{ padding: '0 15px', textAlign: 'center' }}>
-                      <div style={{ fontSize: '0.8em', color: '#7f8c8d' }}>1ч 30м</div>
-                      <div style={{ fontSize: '1.5em', color: '#4facfe' }}>→</div>
+                    <div style={{ padding: '0 5px', textAlign: 'center', minWidth: '50px' }}>
+                      <div style={{ fontSize: 'clamp(0.65em, 1.8vw, 0.8em)', color: '#7f8c8d' }}>1ч 30м</div>
+                      <div style={{ fontSize: 'clamp(1em, 2.5vw, 1.5em)', color: '#4facfe' }}>→</div>
                     </div>
-                    <div style={{ flex: 1, textAlign: 'right' }}>
-                      <div style={{ fontSize: '1.3em', fontWeight: 700, color: '#2c3e50' }}>18:30</div>
-                      <div style={{ fontSize: '0.9em', color: '#7f8c8d' }}>Истанбул (IST)</div>
+                    <div style={{ flex: 1, textAlign: 'right', minWidth: '70px' }}>
+                      <div style={{ fontSize: 'clamp(1em, 3vw, 1.3em)', fontWeight: 700, color: '#2c3e50' }}>18:30</div>
+                      <div style={{ fontSize: 'clamp(0.7em, 2vw, 0.9em)', color: '#7f8c8d' }}>Истанбул (IST)</div>
                     </div>
                   </div>
                 </div>
 
                 {/* Transfer */}
                 <div style={{
-                  padding: '10px 15px',
+                  padding: '8px 12px',
                   background: '#fff3cd',
                   borderRadius: '8px',
-                  marginBottom: '20px',
+                  marginBottom: '15px',
                   textAlign: 'center',
-                  fontSize: '0.9em',
+                  fontSize: 'clamp(0.75em, 2vw, 0.9em)',
                   color: '#856404'
                 }}>
                   ⏱ Трансфер в Истанбул: 8ч 5м
@@ -426,49 +430,51 @@ const MaldivesSurprise = () => {
 
                 {/* Second Leg: IST to MLE */}
                 <div style={{
-                  padding: '15px',
+                  padding: '10px',
                   background: '#f8f9fa',
                   borderRadius: '10px'
                 }}>
                   <div style={{
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '10px',
-                    marginBottom: '10px'
+                    gap: '6px',
+                    marginBottom: '10px',
+                    flexWrap: 'wrap'
                   }}>
                     <span style={{
                       background: '#C70025',
                       color: 'white',
-                      padding: '4px 12px',
+                      padding: '4px 10px',
                       borderRadius: '12px',
-                      fontSize: '0.85em',
+                      fontSize: 'clamp(0.7em, 2vw, 0.85em)',
                       fontWeight: 'bold'
                     }}>
                       TK734
                     </span>
-                    <span style={{ fontSize: '0.85em', color: '#7f8c8d' }}>Turkish Airlines</span>
-                    <span style={{ fontSize: '0.85em', color: '#7f8c8d' }}>• Economy Class</span>
+                    <span style={{ fontSize: 'clamp(0.7em, 2vw, 0.85em)', color: '#7f8c8d' }}>Turkish Airlines</span>
+                    <span style={{ fontSize: 'clamp(0.7em, 2vw, 0.85em)', color: '#7f8c8d' }}>• Economy Class</span>
                   </div>
 
                   <div style={{
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    margin: '10px 0'
+                    margin: '10px 0',
+                    gap: '5px'
                   }}>
-                    <div style={{ flex: 1 }}>
-                      <div style={{ fontSize: '1.3em', fontWeight: 700, color: '#2c3e50' }}>02:35</div>
-                      <div style={{ fontSize: '0.9em', color: '#7f8c8d' }}>Истанбул (IST)</div>
-                      <div style={{ fontSize: '0.75em', color: '#e74c3c', fontWeight: 600 }}>Четвъртък, 5 март</div>
+                    <div style={{ flex: 1, minWidth: '70px' }}>
+                      <div style={{ fontSize: 'clamp(1em, 3vw, 1.3em)', fontWeight: 700, color: '#2c3e50' }}>02:35</div>
+                      <div style={{ fontSize: 'clamp(0.7em, 2vw, 0.9em)', color: '#7f8c8d' }}>Истанбул (IST)</div>
+                      <div style={{ fontSize: 'clamp(0.65em, 1.8vw, 0.75em)', color: '#e74c3c', fontWeight: 600 }}>Четвъртък, 5 март</div>
                     </div>
-                    <div style={{ padding: '0 15px', textAlign: 'center' }}>
-                      <div style={{ fontSize: '0.8em', color: '#7f8c8d' }}>8ч</div>
-                      <div style={{ fontSize: '1.5em', color: '#4facfe' }}>→</div>
+                    <div style={{ padding: '0 5px', textAlign: 'center', minWidth: '40px' }}>
+                      <div style={{ fontSize: 'clamp(0.65em, 1.8vw, 0.8em)', color: '#7f8c8d' }}>8ч</div>
+                      <div style={{ fontSize: 'clamp(1em, 2.5vw, 1.5em)', color: '#4facfe' }}>→</div>
                     </div>
-                    <div style={{ flex: 1, textAlign: 'right' }}>
-                      <div style={{ fontSize: '1.3em', fontWeight: 700, color: '#2c3e50' }}>12:35</div>
-                      <div style={{ fontSize: '0.9em', color: '#7f8c8d' }}>Малдиви (MLE)</div>
-                      <div style={{ fontSize: '0.75em', color: '#e74c3c', fontWeight: 600 }}>Четвъртък, 5 март</div>
+                    <div style={{ flex: 1, textAlign: 'right', minWidth: '70px' }}>
+                      <div style={{ fontSize: 'clamp(1em, 3vw, 1.3em)', fontWeight: 700, color: '#2c3e50' }}>12:35</div>
+                      <div style={{ fontSize: 'clamp(0.7em, 2vw, 0.9em)', color: '#7f8c8d' }}>Малдиви (MLE)</div>
+                      <div style={{ fontSize: 'clamp(0.65em, 1.8vw, 0.75em)', color: '#e74c3c', fontWeight: 600 }}>Четвъртък, 5 март</div>
                     </div>
                   </div>
                 </div>
@@ -476,7 +482,7 @@ const MaldivesSurprise = () => {
 
               {/* Return Flight */}
               <div style={{
-                padding: '20px',
+                padding: '12px',
                 background: 'white',
                 borderRadius: '10px',
                 boxShadow: '0 5px 15px rgba(0,0,0,0.1)'
@@ -485,74 +491,78 @@ const MaldivesSurprise = () => {
                   display: 'flex',
                   justifyContent: 'space-between',
                   alignItems: 'center',
-                  marginBottom: '15px'
+                  marginBottom: '12px',
+                  flexWrap: 'wrap',
+                  gap: '8px'
                 }}>
-                  <span style={{ fontWeight: 600, color: '#2c3e50', fontSize: '1.1em' }}>
+                  <span style={{ fontWeight: 600, color: '#2c3e50', fontSize: 'clamp(0.9em, 2.5vw, 1.1em)' }}>
                     Полет 2 - Завръщане
                   </span>
-                  <span style={{ color: '#7f8c8d', fontSize: '0.9em' }}>
+                  <span style={{ color: '#7f8c8d', fontSize: 'clamp(0.75em, 2vw, 0.9em)' }}>
                     Четвъртък, 12 март 2026
                   </span>
                 </div>
 
                 {/* First Leg: MLE to IST */}
                 <div style={{
-                  marginBottom: '20px',
-                  padding: '15px',
+                  marginBottom: '15px',
+                  padding: '10px',
                   background: '#f8f9fa',
                   borderRadius: '10px'
                 }}>
                   <div style={{
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '10px',
-                    marginBottom: '10px'
+                    gap: '6px',
+                    marginBottom: '10px',
+                    flexWrap: 'wrap'
                   }}>
                     <span style={{
                       background: '#C70025',
                       color: 'white',
-                      padding: '4px 12px',
+                      padding: '4px 10px',
                       borderRadius: '12px',
-                      fontSize: '0.85em',
+                      fontSize: 'clamp(0.7em, 2vw, 0.85em)',
                       fontWeight: 'bold'
                     }}>
                       TK735
                     </span>
-                    <span style={{ fontSize: '0.85em', color: '#7f8c8d' }}>Turkish Airlines</span>
-                    <span style={{ fontSize: '0.85em', color: '#7f8c8d' }}>• Economy Class</span>
+                    <span style={{ fontSize: 'clamp(0.7em, 2vw, 0.85em)', color: '#7f8c8d' }}>Turkish Airlines</span>
+                    <span style={{ fontSize: 'clamp(0.7em, 2vw, 0.85em)', color: '#7f8c8d' }}>• Economy Class</span>
                   </div>
 
                   <div style={{
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    margin: '10px 0'
+                    margin: '10px 0',
+                    gap: '5px'
                   }}>
-                    <div style={{ flex: 1 }}>
-                      <div style={{ fontSize: '1.3em', fontWeight: 700, color: '#2c3e50' }}>21:55</div>
-                      <div style={{ fontSize: '0.9em', color: '#7f8c8d' }}>Малдиви (MLE)</div>
-                      <div style={{ fontSize: '0.75em', color: '#7f8c8d' }}>Четвъртък, 12 март</div>
+                    <div style={{ flex: 1, minWidth: '70px' }}>
+                      <div style={{ fontSize: 'clamp(1em, 3vw, 1.3em)', fontWeight: 700, color: '#2c3e50' }}>21:55</div>
+                      <div style={{ fontSize: 'clamp(0.7em, 2vw, 0.9em)', color: '#7f8c8d' }}>Малдиви (MLE)</div>
+                      <div style={{ fontSize: 'clamp(0.65em, 1.8vw, 0.75em)', color: '#7f8c8d' }}>Четвъртък, 12 март</div>
                     </div>
-                    <div style={{ padding: '0 15px', textAlign: 'center' }}>
-                      <div style={{ fontSize: '0.8em', color: '#7f8c8d' }}>8ч 45м</div>
-                      <div style={{ fontSize: '1.5em', color: '#4facfe' }}>→</div>
+                    <div style={{ padding: '0 5px', textAlign: 'center', minWidth: '50px' }}>
+                      <div style={{ fontSize: 'clamp(0.65em, 1.8vw, 0.8em)', color: '#7f8c8d' }}>8ч 45м</div>
+                      <div style={{ fontSize: 'clamp(1em, 2.5vw, 1.5em)', color: '#4facfe' }}>→</div>
                     </div>
-                    <div style={{ flex: 1, textAlign: 'right' }}>
-                      <div style={{ fontSize: '1.3em', fontWeight: 700, color: '#2c3e50' }}>04:40</div>
-                      <div style={{ fontSize: '0.9em', color: '#7f8c8d' }}>Истанбул (IST)</div>
-                      <div style={{ fontSize: '0.75em', color: '#e74c3c', fontWeight: 600 }}>Петък, 13 март</div>
+                    <div style={{ flex: 1, textAlign: 'right', minWidth: '70px' }}>
+                      <div style={{ fontSize: 'clamp(1em, 3vw, 1.3em)', fontWeight: 700, color: '#2c3e50' }}>04:40</div>
+                      <div style={{ fontSize: 'clamp(0.7em, 2vw, 0.9em)', color: '#7f8c8d' }}>Истанбул (IST)</div>
+                      <div style={{ fontSize: 'clamp(0.65em, 1.8vw, 0.75em)', color: '#e74c3c', fontWeight: 600 }}>Петък, 13 март</div>
                     </div>
                   </div>
                 </div>
 
                 {/* Transfer */}
                 <div style={{
-                  padding: '10px 15px',
+                  padding: '8px 12px',
                   background: '#fff3cd',
                   borderRadius: '8px',
-                  marginBottom: '20px',
+                  marginBottom: '15px',
                   textAlign: 'center',
-                  fontSize: '0.9em',
+                  fontSize: 'clamp(0.75em, 2vw, 0.9em)',
                   color: '#856404'
                 }}>
                   ⏱ Трансфер в Истанбул: 3ч 50м
@@ -560,49 +570,51 @@ const MaldivesSurprise = () => {
 
                 {/* Second Leg: IST to SOF */}
                 <div style={{
-                  padding: '15px',
+                  padding: '10px',
                   background: '#f8f9fa',
                   borderRadius: '10px'
                 }}>
                   <div style={{
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '10px',
-                    marginBottom: '10px'
+                    gap: '6px',
+                    marginBottom: '10px',
+                    flexWrap: 'wrap'
                   }}>
                     <span style={{
                       background: '#C70025',
                       color: 'white',
-                      padding: '4px 12px',
+                      padding: '4px 10px',
                       borderRadius: '12px',
-                      fontSize: '0.85em',
+                      fontSize: 'clamp(0.7em, 2vw, 0.85em)',
                       fontWeight: 'bold'
                     }}>
                       TK1027
                     </span>
-                    <span style={{ fontSize: '0.85em', color: '#7f8c8d' }}>Turkish Airlines</span>
-                    <span style={{ fontSize: '0.85em', color: '#7f8c8d' }}>• Economy Class</span>
+                    <span style={{ fontSize: 'clamp(0.7em, 2vw, 0.85em)', color: '#7f8c8d' }}>Turkish Airlines</span>
+                    <span style={{ fontSize: 'clamp(0.7em, 2vw, 0.85em)', color: '#7f8c8d' }}>• Economy Class</span>
                   </div>
 
                   <div style={{
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    margin: '10px 0'
+                    margin: '10px 0',
+                    gap: '5px'
                   }}>
-                    <div style={{ flex: 1 }}>
-                      <div style={{ fontSize: '1.3em', fontWeight: 700, color: '#2c3e50' }}>08:30</div>
-                      <div style={{ fontSize: '0.9em', color: '#7f8c8d' }}>Истанбул (IST)</div>
-                      <div style={{ fontSize: '0.75em', color: '#e74c3c', fontWeight: 600 }}>Петък, 13 март</div>
+                    <div style={{ flex: 1, minWidth: '70px' }}>
+                      <div style={{ fontSize: 'clamp(1em, 3vw, 1.3em)', fontWeight: 700, color: '#2c3e50' }}>08:30</div>
+                      <div style={{ fontSize: 'clamp(0.7em, 2vw, 0.9em)', color: '#7f8c8d' }}>Истанбул (IST)</div>
+                      <div style={{ fontSize: 'clamp(0.65em, 1.8vw, 0.75em)', color: '#e74c3c', fontWeight: 600 }}>Петък, 13 март</div>
                     </div>
-                    <div style={{ padding: '0 15px', textAlign: 'center' }}>
-                      <div style={{ fontSize: '0.8em', color: '#7f8c8d' }}>1ч 15м</div>
-                      <div style={{ fontSize: '1.5em', color: '#4facfe' }}>→</div>
+                    <div style={{ padding: '0 5px', textAlign: 'center', minWidth: '40px' }}>
+                      <div style={{ fontSize: 'clamp(0.65em, 1.8vw, 0.8em)', color: '#7f8c8d' }}>1ч 15м</div>
+                      <div style={{ fontSize: 'clamp(1em, 2.5vw, 1.5em)', color: '#4facfe' }}>→</div>
                     </div>
-                    <div style={{ flex: 1, textAlign: 'right' }}>
-                      <div style={{ fontSize: '1.3em', fontWeight: 700, color: '#2c3e50' }}>08:45</div>
-                      <div style={{ fontSize: '0.9em', color: '#7f8c8d' }}>София (SOF)</div>
-                      <div style={{ fontSize: '0.75em', color: '#e74c3c', fontWeight: 600 }}>Петък, 13 март</div>
+                    <div style={{ flex: 1, textAlign: 'right', minWidth: '70px' }}>
+                      <div style={{ fontSize: 'clamp(1em, 3vw, 1.3em)', fontWeight: 700, color: '#2c3e50' }}>08:45</div>
+                      <div style={{ fontSize: 'clamp(0.7em, 2vw, 0.9em)', color: '#7f8c8d' }}>София (SOF)</div>
+                      <div style={{ fontSize: 'clamp(0.65em, 1.8vw, 0.75em)', color: '#e74c3c', fontWeight: 600 }}>Петък, 13 март</div>
                     </div>
                   </div>
                 </div>
