@@ -351,6 +351,78 @@ const MaldivesSurprise = () => {
             </p>
           </div>
 
+          {/* Countdown Timer */}
+          <div style={{
+            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+            color: 'white',
+            padding: 'clamp(20px, 4vw, 30px)',
+            borderRadius: '15px',
+            textAlign: 'center',
+            marginBottom: 'clamp(20px, 5vw, 40px)',
+            boxShadow: '0 10px 30px rgba(0,0,0,0.2)'
+          }}>
+            <h3 style={{
+              fontSize: 'clamp(1.1em, 3.5vw, 1.5em)',
+              marginBottom: '20px',
+              fontFamily: "'Playfair Display', serif",
+              textTransform: 'uppercase',
+              letterSpacing: '2px'
+            }}>
+              ⏰ Обратно броене до пътуването
+            </h3>
+
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(70px, 1fr))',
+              gap: 'clamp(10px, 2vw, 20px)',
+              maxWidth: '600px',
+              margin: '0 auto'
+            }}>
+              {[
+                { value: timeLeft.days, label: 'Дни' },
+                { value: timeLeft.hours, label: 'Часа' },
+                { value: timeLeft.minutes, label: 'Минути' },
+                { value: timeLeft.seconds, label: 'Секунди' }
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  style={{
+                    background: 'rgba(255, 255, 255, 0.2)',
+                    backdropFilter: 'blur(10px)',
+                    borderRadius: '15px',
+                    padding: 'clamp(12px, 3vw, 20px)',
+                    border: '2px solid rgba(255, 255, 255, 0.3)',
+                    transition: 'transform 0.3s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-5px)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                  }}
+                >
+                  <div style={{
+                    fontSize: 'clamp(1.8em, 5vw, 3em)',
+                    fontWeight: 'bold',
+                    lineHeight: 1,
+                    marginBottom: '8px',
+                    textShadow: '2px 2px 4px rgba(0,0,0,0.2)'
+                  }}>
+                    {String(item.value).padStart(2, '0')}
+                  </div>
+                  <div style={{
+                    fontSize: 'clamp(0.7em, 2vw, 0.9em)',
+                    textTransform: 'uppercase',
+                    letterSpacing: '1px',
+                    opacity: 0.9
+                  }}>
+                    {item.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
           {/* Flight Details */}
           <div style={{ marginBottom: '30px' }}>
             <h2 style={{
