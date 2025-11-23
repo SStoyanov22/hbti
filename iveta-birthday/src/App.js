@@ -170,9 +170,7 @@ const MaldivesSurprise = () => {
                       />
                     </div>
                     <Carousel.Caption style={{ background: 'rgba(0,0,0,0.5)', borderRadius: '10px', padding: '10px' }}>
-                      <h5 style={{ color: 'white', fontWeight: 'bold', marginBottom: 0 }}>
-                        Снимка {index + 1} от {resortImages.length}
-                      </h5>
+                      
                     </Carousel.Caption>
                   </Carousel.Item>
                 ))}
