@@ -124,7 +124,7 @@ const MaldivesSurprise = () => {
               fontSize: '2.5em',
               marginBottom: '10px'
             }}>
-              🎉 Честит 30-ти Рожден Ден, Ивета! 🎉
+              🎉 Честит 30-ти Рожден Ден, Ивче! 🎉
             </h1>
             <div style={{ fontSize: '1.2em', opacity: 0.9 }}>
               Готова ли си за твоята награда?
@@ -169,7 +169,7 @@ const MaldivesSurprise = () => {
                         style={{ objectFit: 'cover' }}
                       />
                     </div>
-                    {index === 15 && (
+                    {index === 14 && (
                       <Carousel.Caption style={{ background: 'rgba(0,0,0,0.7)', borderRadius: '10px', padding: '15px' }}>
                         <div style={{ color: 'white', fontWeight: 'bold', fontSize: '1em', marginBottom: '5px' }}>
                           📍 Тайното местоположение:
