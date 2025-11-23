@@ -10,6 +10,35 @@ const MaldivesSurprise = () => {
   const [attempts, setAttempts] = useState(0);
   const [showHint, setShowHint] = useState(false);
   const successMessageRef = useRef(null);
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
+
+  // Countdown timer
+  useEffect(() => {
+    const calculateTimeLeft = () => {
+      const departureDate = new Date('2026-03-04T16:00:00');
+      const now = new Date();
+      const difference = departureDate - now;
+
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+          minutes: Math.floor((difference / 1000 / 60) % 60),
+          seconds: Math.floor((difference / 1000) % 60)
+        });
+      }
+    };
+
+    calculateTimeLeft();
+    const timer = setInterval(calculateTimeLeft, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
 
   // Scroll to success message when guessed correctly
   useEffect(() => {
