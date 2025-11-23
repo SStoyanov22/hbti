@@ -36,3 +36,110 @@
     transform: rotate(360deg);
   }
 }
+
+/* Responsive Flight Details */
+.flight-container {
+  overflow-x: hidden;
+  word-wrap: break-word;
+}
+
+.flight-info-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.flight-route {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.flight-location {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.flight-time {
+  font-size: 1.3em;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.flight-city {
+  font-size: 0.9em;
+  word-break: break-word;
+}
+
+.flight-date {
+  font-size: 0.75em;
+  word-break: break-word;
+}
+
+.flight-duration {
+  padding: 0 5px;
+  text-align: center;
+  min-width: 40px;
+  flex-shrink: 0;
+}
+
+/* Mobile specific styles */
+@media (max-width: 600px) {
+  .flight-time {
+    font-size: 1.1em;
+  }
+
+  .flight-city {
+    font-size: 0.75em;
+  }
+
+  .flight-date {
+    font-size: 0.65em;
+  }
+
+  .flight-duration {
+    min-width: 35px;
+    padding: 0 3px;
+  }
+
+  .flight-location {
+    min-width: 60px;
+  }
+
+  .flight-info-row {
+    gap: 4px;
+    font-size: 0.75em;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 400px) {
+  .flight-time {
+    font-size: 1em;
+  }
+
+  .flight-city {
+    font-size: 0.7em;
+  }
+
+  .flight-date {
+    font-size: 0.6em;
+  }
+
+  .flight-duration {
+    min-width: 30px;
+    font-size: 0.7em;
+  }
+
+  .flight-location {
+    min-width: 55px;
+  }
+
+  .flight-info-row {
+    gap: 3px;
+    font-size: 0.7em;
+  }
+}

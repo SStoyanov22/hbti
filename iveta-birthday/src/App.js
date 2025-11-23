@@ -335,7 +335,7 @@ const MaldivesSurprise = () => {
               ✈️ Детайли за полетите
             </h2>
 
-            <div style={{
+            <div className="flight-container" style={{
               background: '#f8f9fa',
               padding: '15px',
               borderRadius: '15px',
@@ -372,45 +372,33 @@ const MaldivesSurprise = () => {
                   background: '#f8f9fa',
                   borderRadius: '10px'
                 }}>
-                  <div style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                    marginBottom: '10px',
-                    flexWrap: 'wrap'
-                  }}>
+                  <div className="flight-info-row" style={{ marginBottom: '10px' }}>
                     <span style={{
                       background: '#C70025',
                       color: 'white',
                       padding: '4px 10px',
                       borderRadius: '12px',
-                      fontSize: 'clamp(0.7em, 2vw, 0.85em)',
+                      fontSize: '0.85em',
                       fontWeight: 'bold'
                     }}>
                       TK1032
                     </span>
-                    <span style={{ fontSize: 'clamp(0.7em, 2vw, 0.85em)', color: '#7f8c8d' }}>Turkish Airlines</span>
-                    <span style={{ fontSize: 'clamp(0.7em, 2vw, 0.85em)', color: '#7f8c8d' }}>• Economy Class</span>
+                    <span style={{ color: '#7f8c8d' }}>Turkish Airlines</span>
+                    <span style={{ color: '#7f8c8d' }}>• Economy Class</span>
                   </div>
 
-                  <div style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    margin: '10px 0',
-                    gap: '5px'
-                  }}>
-                    <div style={{ flex: 1, minWidth: '70px' }}>
-                      <div style={{ fontSize: 'clamp(1em, 3vw, 1.3em)', fontWeight: 700, color: '#2c3e50' }}>16:00</div>
-                      <div style={{ fontSize: 'clamp(0.7em, 2vw, 0.9em)', color: '#7f8c8d' }}>София (SOF)</div>
+                  <div className="flight-route" style={{ margin: '10px 0' }}>
+                    <div className="flight-location">
+                      <div className="flight-time" style={{ color: '#2c3e50' }}>16:00</div>
+                      <div className="flight-city" style={{ color: '#7f8c8d' }}>София (SOF)</div>
                     </div>
-                    <div style={{ padding: '0 5px', textAlign: 'center', minWidth: '50px' }}>
-                      <div style={{ fontSize: 'clamp(0.65em, 1.8vw, 0.8em)', color: '#7f8c8d' }}>1ч 30м</div>
-                      <div style={{ fontSize: 'clamp(1em, 2.5vw, 1.5em)', color: '#4facfe' }}>→</div>
+                    <div className="flight-duration">
+                      <div style={{ fontSize: '0.8em', color: '#7f8c8d' }}>1ч 30м</div>
+                      <div style={{ fontSize: '1.5em', color: '#4facfe' }}>→</div>
                     </div>
-                    <div style={{ flex: 1, textAlign: 'right', minWidth: '70px' }}>
-                      <div style={{ fontSize: 'clamp(1em, 3vw, 1.3em)', fontWeight: 700, color: '#2c3e50' }}>18:30</div>
-                      <div style={{ fontSize: 'clamp(0.7em, 2vw, 0.9em)', color: '#7f8c8d' }}>Истанбул (IST)</div>
+                    <div className="flight-location" style={{ textAlign: 'right' }}>
+                      <div className="flight-time" style={{ color: '#2c3e50' }}>18:30</div>
+                      <div className="flight-city" style={{ color: '#7f8c8d' }}>Истанбул (IST)</div>
                     </div>
                   </div>
                 </div>
@@ -434,47 +422,35 @@ const MaldivesSurprise = () => {
                   background: '#f8f9fa',
                   borderRadius: '10px'
                 }}>
-                  <div style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                    marginBottom: '10px',
-                    flexWrap: 'wrap'
-                  }}>
+                  <div className="flight-info-row" style={{ marginBottom: '10px' }}>
                     <span style={{
                       background: '#C70025',
                       color: 'white',
                       padding: '4px 10px',
                       borderRadius: '12px',
-                      fontSize: 'clamp(0.7em, 2vw, 0.85em)',
+                      fontSize: '0.85em',
                       fontWeight: 'bold'
                     }}>
                       TK734
                     </span>
-                    <span style={{ fontSize: 'clamp(0.7em, 2vw, 0.85em)', color: '#7f8c8d' }}>Turkish Airlines</span>
-                    <span style={{ fontSize: 'clamp(0.7em, 2vw, 0.85em)', color: '#7f8c8d' }}>• Economy Class</span>
+                    <span style={{ color: '#7f8c8d' }}>Turkish Airlines</span>
+                    <span style={{ color: '#7f8c8d' }}>• Economy Class</span>
                   </div>
 
-                  <div style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    margin: '10px 0',
-                    gap: '5px'
-                  }}>
-                    <div style={{ flex: 1, minWidth: '70px' }}>
-                      <div style={{ fontSize: 'clamp(1em, 3vw, 1.3em)', fontWeight: 700, color: '#2c3e50' }}>02:35</div>
-                      <div style={{ fontSize: 'clamp(0.7em, 2vw, 0.9em)', color: '#7f8c8d' }}>Истанбул (IST)</div>
-                      <div style={{ fontSize: 'clamp(0.65em, 1.8vw, 0.75em)', color: '#e74c3c', fontWeight: 600 }}>Четвъртък, 5 март</div>
+                  <div className="flight-route" style={{ margin: '10px 0' }}>
+                    <div className="flight-location">
+                      <div className="flight-time" style={{ color: '#2c3e50' }}>02:35</div>
+                      <div className="flight-city" style={{ color: '#7f8c8d' }}>Истанбул (IST)</div>
+                      <div className="flight-date" style={{ color: '#e74c3c', fontWeight: 600 }}>Четвъртък, 5 март</div>
                     </div>
-                    <div style={{ padding: '0 5px', textAlign: 'center', minWidth: '40px' }}>
-                      <div style={{ fontSize: 'clamp(0.65em, 1.8vw, 0.8em)', color: '#7f8c8d' }}>8ч</div>
-                      <div style={{ fontSize: 'clamp(1em, 2.5vw, 1.5em)', color: '#4facfe' }}>→</div>
+                    <div className="flight-duration">
+                      <div style={{ fontSize: '0.8em', color: '#7f8c8d' }}>8ч</div>
+                      <div style={{ fontSize: '1.5em', color: '#4facfe' }}>→</div>
                     </div>
-                    <div style={{ flex: 1, textAlign: 'right', minWidth: '70px' }}>
-                      <div style={{ fontSize: 'clamp(1em, 3vw, 1.3em)', fontWeight: 700, color: '#2c3e50' }}>12:35</div>
-                      <div style={{ fontSize: 'clamp(0.7em, 2vw, 0.9em)', color: '#7f8c8d' }}>Малдиви (MLE)</div>
-                      <div style={{ fontSize: 'clamp(0.65em, 1.8vw, 0.75em)', color: '#e74c3c', fontWeight: 600 }}>Четвъртък, 5 март</div>
+                    <div className="flight-location" style={{ textAlign: 'right' }}>
+                      <div className="flight-time" style={{ color: '#2c3e50' }}>12:35</div>
+                      <div className="flight-city" style={{ color: '#7f8c8d' }}>Малдиви (MLE)</div>
+                      <div className="flight-date" style={{ color: '#e74c3c', fontWeight: 600 }}>Четвъртък, 5 март</div>
                     </div>
                   </div>
                 </div>
@@ -510,47 +486,35 @@ const MaldivesSurprise = () => {
                   background: '#f8f9fa',
                   borderRadius: '10px'
                 }}>
-                  <div style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                    marginBottom: '10px',
-                    flexWrap: 'wrap'
-                  }}>
+                  <div className="flight-info-row" style={{ marginBottom: '10px' }}>
                     <span style={{
                       background: '#C70025',
                       color: 'white',
                       padding: '4px 10px',
                       borderRadius: '12px',
-                      fontSize: 'clamp(0.7em, 2vw, 0.85em)',
+                      fontSize: '0.85em',
                       fontWeight: 'bold'
                     }}>
                       TK735
                     </span>
-                    <span style={{ fontSize: 'clamp(0.7em, 2vw, 0.85em)', color: '#7f8c8d' }}>Turkish Airlines</span>
-                    <span style={{ fontSize: 'clamp(0.7em, 2vw, 0.85em)', color: '#7f8c8d' }}>• Economy Class</span>
+                    <span style={{ color: '#7f8c8d' }}>Turkish Airlines</span>
+                    <span style={{ color: '#7f8c8d' }}>• Economy Class</span>
                   </div>
 
-                  <div style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    margin: '10px 0',
-                    gap: '5px'
-                  }}>
-                    <div style={{ flex: 1, minWidth: '70px' }}>
-                      <div style={{ fontSize: 'clamp(1em, 3vw, 1.3em)', fontWeight: 700, color: '#2c3e50' }}>21:55</div>
-                      <div style={{ fontSize: 'clamp(0.7em, 2vw, 0.9em)', color: '#7f8c8d' }}>Малдиви (MLE)</div>
-                      <div style={{ fontSize: 'clamp(0.65em, 1.8vw, 0.75em)', color: '#7f8c8d' }}>Четвъртък, 12 март</div>
+                  <div className="flight-route" style={{ margin: '10px 0' }}>
+                    <div className="flight-location">
+                      <div className="flight-time" style={{ color: '#2c3e50' }}>21:55</div>
+                      <div className="flight-city" style={{ color: '#7f8c8d' }}>Малдиви (MLE)</div>
+                      <div className="flight-date" style={{ color: '#7f8c8d' }}>Четвъртък, 12 март</div>
                     </div>
-                    <div style={{ padding: '0 5px', textAlign: 'center', minWidth: '50px' }}>
-                      <div style={{ fontSize: 'clamp(0.65em, 1.8vw, 0.8em)', color: '#7f8c8d' }}>8ч 45м</div>
-                      <div style={{ fontSize: 'clamp(1em, 2.5vw, 1.5em)', color: '#4facfe' }}>→</div>
+                    <div className="flight-duration">
+                      <div style={{ fontSize: '0.8em', color: '#7f8c8d' }}>8ч 45м</div>
+                      <div style={{ fontSize: '1.5em', color: '#4facfe' }}>→</div>
                     </div>
-                    <div style={{ flex: 1, textAlign: 'right', minWidth: '70px' }}>
-                      <div style={{ fontSize: 'clamp(1em, 3vw, 1.3em)', fontWeight: 700, color: '#2c3e50' }}>04:40</div>
-                      <div style={{ fontSize: 'clamp(0.7em, 2vw, 0.9em)', color: '#7f8c8d' }}>Истанбул (IST)</div>
-                      <div style={{ fontSize: 'clamp(0.65em, 1.8vw, 0.75em)', color: '#e74c3c', fontWeight: 600 }}>Петък, 13 март</div>
+                    <div className="flight-location" style={{ textAlign: 'right' }}>
+                      <div className="flight-time" style={{ color: '#2c3e50' }}>04:40</div>
+                      <div className="flight-city" style={{ color: '#7f8c8d' }}>Истанбул (IST)</div>
+                      <div className="flight-date" style={{ color: '#e74c3c', fontWeight: 600 }}>Петък, 13 март</div>
                     </div>
                   </div>
                 </div>
@@ -574,47 +538,35 @@ const MaldivesSurprise = () => {
                   background: '#f8f9fa',
                   borderRadius: '10px'
                 }}>
-                  <div style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                    marginBottom: '10px',
-                    flexWrap: 'wrap'
-                  }}>
+                  <div className="flight-info-row" style={{ marginBottom: '10px' }}>
                     <span style={{
                       background: '#C70025',
                       color: 'white',
                       padding: '4px 10px',
                       borderRadius: '12px',
-                      fontSize: 'clamp(0.7em, 2vw, 0.85em)',
+                      fontSize: '0.85em',
                       fontWeight: 'bold'
                     }}>
                       TK1027
                     </span>
-                    <span style={{ fontSize: 'clamp(0.7em, 2vw, 0.85em)', color: '#7f8c8d' }}>Turkish Airlines</span>
-                    <span style={{ fontSize: 'clamp(0.7em, 2vw, 0.85em)', color: '#7f8c8d' }}>• Economy Class</span>
+                    <span style={{ color: '#7f8c8d' }}>Turkish Airlines</span>
+                    <span style={{ color: '#7f8c8d' }}>• Economy Class</span>
                   </div>
 
-                  <div style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    margin: '10px 0',
-                    gap: '5px'
-                  }}>
-                    <div style={{ flex: 1, minWidth: '70px' }}>
-                      <div style={{ fontSize: 'clamp(1em, 3vw, 1.3em)', fontWeight: 700, color: '#2c3e50' }}>08:30</div>
-                      <div style={{ fontSize: 'clamp(0.7em, 2vw, 0.9em)', color: '#7f8c8d' }}>Истанбул (IST)</div>
-                      <div style={{ fontSize: 'clamp(0.65em, 1.8vw, 0.75em)', color: '#e74c3c', fontWeight: 600 }}>Петък, 13 март</div>
+                  <div className="flight-route" style={{ margin: '10px 0' }}>
+                    <div className="flight-location">
+                      <div className="flight-time" style={{ color: '#2c3e50' }}>08:30</div>
+                      <div className="flight-city" style={{ color: '#7f8c8d' }}>Истанбул (IST)</div>
+                      <div className="flight-date" style={{ color: '#e74c3c', fontWeight: 600 }}>Петък, 13 март</div>
                     </div>
-                    <div style={{ padding: '0 5px', textAlign: 'center', minWidth: '40px' }}>
-                      <div style={{ fontSize: 'clamp(0.65em, 1.8vw, 0.8em)', color: '#7f8c8d' }}>1ч 15м</div>
-                      <div style={{ fontSize: 'clamp(1em, 2.5vw, 1.5em)', color: '#4facfe' }}>→</div>
+                    <div className="flight-duration">
+                      <div style={{ fontSize: '0.8em', color: '#7f8c8d' }}>1ч 15м</div>
+                      <div style={{ fontSize: '1.5em', color: '#4facfe' }}>→</div>
                     </div>
-                    <div style={{ flex: 1, textAlign: 'right', minWidth: '70px' }}>
-                      <div style={{ fontSize: 'clamp(1em, 3vw, 1.3em)', fontWeight: 700, color: '#2c3e50' }}>08:45</div>
-                      <div style={{ fontSize: 'clamp(0.7em, 2vw, 0.9em)', color: '#7f8c8d' }}>София (SOF)</div>
-                      <div style={{ fontSize: 'clamp(0.65em, 1.8vw, 0.75em)', color: '#e74c3c', fontWeight: 600 }}>Петък, 13 март</div>
+                    <div className="flight-location" style={{ textAlign: 'right' }}>
+                      <div className="flight-time" style={{ color: '#2c3e50' }}>08:45</div>
+                      <div className="flight-city" style={{ color: '#7f8c8d' }}>София (SOF)</div>
+                      <div className="flight-date" style={{ color: '#e74c3c', fontWeight: 600 }}>Петък, 13 март</div>
                     </div>
                   </div>
                 </div>
