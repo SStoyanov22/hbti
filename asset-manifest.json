@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/hbti/static/css/main.64b6ee99.css",
-    "main.js": "/hbti/static/js/main.f6e4d88a.js",
+    "main.js": "/hbti/static/js/main.f8464c42.js",
     "static/js/453.25a0be3c.chunk.js": "/hbti/static/js/453.25a0be3c.chunk.js",
     "index.html": "/hbti/index.html",
     "main.64b6ee99.css.map": "/hbti/static/css/main.64b6ee99.css.map",
-    "main.f6e4d88a.js.map": "/hbti/static/js/main.f6e4d88a.js.map",
+    "main.f8464c42.js.map": "/hbti/static/js/main.f8464c42.js.map",
     "453.25a0be3c.chunk.js.map": "/hbti/static/js/453.25a0be3c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.64b6ee99.css",
-    "static/js/main.f6e4d88a.js"
+    "static/js/main.f8464c42.js"
   ]
 }
