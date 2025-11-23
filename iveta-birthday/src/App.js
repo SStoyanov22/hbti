@@ -691,7 +691,7 @@ const MaldivesSurprise = () => {
               borderBottom: '3px solid #4facfe',
               paddingBottom: '10px'
             }}>
-              🏝️ Информация за хотела
+              🏝️ Информация за резорта
             </h2>
 
             <div style={{
@@ -783,7 +783,7 @@ const MaldivesSurprise = () => {
                     e.target.style.boxShadow = '0 5px 15px rgba(0,0,0,0.2)';
                   }}
                 >
-                  🌐 Виж уебсайта на хотела
+                  🌐 Виж уебсайта на резорта
                 </a>
               </div>
             </div>
