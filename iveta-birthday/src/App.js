@@ -175,7 +175,7 @@ const MaldivesSurprise = () => {
                           📍 Тайното местоположение:
                         </div>
                         <div style={{ color: 'white', fontSize: '0.95em', letterSpacing: '0.5px' }}>
-                          4°18'20.6"N 73°30'19.1"E
+                          4.1753° N, 73.5091° E
                         </div>
                       </Carousel.Caption>
                     )}
