@@ -31,3 +31,31 @@ npm run build  # Production
 Deploy the build folder to Netlify, Vercel, or any static host!
 
 Built with ❤️ for Iveta!
+
+## Deploy it
+ npm run deploy
+
+  That's it! This single command will:
+  1. Build your React app
+  2. Create a gh-pages branch
+  3. Deploy to GitHub Pages
+
+  Your Site Will Be Live At:
+
+  https://sstoyanov22.github.io/hbti
+
+  Important: Enable GitHub Pages
+
+  After running npm run deploy, you need to enable GitHub Pages in your repository:
+
+  1. Go to: https://github.com/SStoyanov22/hbti/settings/pages
+  2. Under "Source", select gh-pages branch
+  3. Click Save
+  4. Wait 1-2 minutes for deployment
+
+  QR Code Generation
+
+  Once deployed, you can create a QR code for the puzzle:
+  - Use any QR code generator website
+  - Enter URL: https://sstoyanov22.github.io/hbti
+  - Download and print the QR code

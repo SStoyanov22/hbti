@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -9,6 +9,17 @@ const MaldivesSurprise = () => {
   const [userGuess, setUserGuess] = useState('');
   const [attempts, setAttempts] = useState(0);
   const [showHint, setShowHint] = useState(false);
+  const successMessageRef = useRef(null);
+
+  // Scroll to success message when guessed correctly
+  useEffect(() => {
+    if (guessedCorrectly && successMessageRef.current) {
+      successMessageRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+      });
+    }
+  }, [guessedCorrectly]);
 
   // Resort images from pics folder
   const resortImages = [
@@ -289,7 +300,7 @@ const MaldivesSurprise = () => {
         <div style={{ padding: '40px 30px' }}>
 
           {/* Success Message */}
-          <div style={{
+          <div ref={successMessageRef} style={{
             background: 'linear-gradient(135deg, #a8e6cf 0%, #7fcdcd 100%)',
             color: '#2c3e50',
             padding: '30px',
